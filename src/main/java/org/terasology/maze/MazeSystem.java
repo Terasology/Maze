@@ -21,7 +21,6 @@ import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.ComponentSystem;
 import org.terasology.entitySystem.systems.In;
-import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.logic.inventory.InventoryManager;
@@ -38,7 +37,7 @@ import org.terasology.world.block.BlockManager;
 /**
  * @author synopia
  */
-@RegisterSystem(RegisterMode.AUTHORITY)
+@RegisterSystem
 public class MazeSystem implements ComponentSystem {
     private Block air;
     private Block solid;

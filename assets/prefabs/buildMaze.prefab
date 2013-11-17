@@ -1,7 +1,7 @@
 {
     "parent" : "engine:iconItem",
     "Item" : {
-        "name" : "Build block",
+        "name" : "Build maze",
         "icon" : "scissors",
 		"usage" : "ON_BLOCK"
     },
