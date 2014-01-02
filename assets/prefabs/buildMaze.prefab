@@ -9,7 +9,7 @@
     	sounds = "engine:click"
   	},
   	"BuildMaze" : {
-  	    blockType = "engine:dirt"
+  	    blockType = "core:dirt"
   	},
     "BlockSelection" : {}
 }
