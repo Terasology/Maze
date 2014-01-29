@@ -2,7 +2,7 @@
     "parent" : "engine:iconItem",
     "Item" : {
         "name" : "Build maze",
-        "icon" : "scissors",
+        "icon" : "engine:items.scissors",
 		"usage" : "ON_BLOCK"
     },
   	"PlaySoundAction" : {
