@@ -1,11 +1,11 @@
 /*
- * Copyright 2013 MovingBlocks
+ * Copyright 2014 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,12 +17,10 @@ package org.terasology.maze;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.registry.CoreRegistry;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
-import org.terasology.entitySystem.systems.ComponentSystem;
-import org.terasology.registry.In;
+import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.logic.inventory.InventoryManager;
@@ -33,6 +31,8 @@ import org.terasology.math.Region3i;
 import org.terasology.math.Vector3i;
 import org.terasology.maze.model.MazeGenerator;
 import org.terasology.maze.model.PerfectMazeGenerator;
+import org.terasology.registry.CoreRegistry;
+import org.terasology.registry.In;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
@@ -41,7 +41,7 @@ import org.terasology.world.block.BlockManager;
  * @author synopia
  */
 @RegisterSystem
-public class MazeSystem implements ComponentSystem {
+public class MazeSystem extends BaseComponentSystem {
     private static final Logger logger = LoggerFactory.getLogger(MazeSystem.class);
 
     private Block solid;
