@@ -1,7 +1,9 @@
 {
     "parent" : "engine:iconItem",
+    "DisplayName" : {
+        "name" : "Build maze"
+    },
     "Item" : {
-        "name" : "Build maze",
         "icon" : "engine:items.scissors",
 		"usage" : "ON_BLOCK"
     },
