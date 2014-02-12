@@ -15,7 +15,9 @@
  */
 package org.terasology.maze;
 
-import org.terasology.engine.CoreRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.terasology.registry.CoreRegistry;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
@@ -24,6 +26,7 @@ import org.terasology.registry.In;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.logic.inventory.InventoryManager;
+import org.terasology.logic.inventory.action.GiveItemAction;
 import org.terasology.logic.players.event.OnPlayerSpawnedEvent;
 import org.terasology.logic.selection.ApplyBlockSelectionEvent;
 import org.terasology.math.Region3i;
@@ -39,7 +42,8 @@ import org.terasology.world.block.BlockManager;
  */
 @RegisterSystem
 public class MazeSystem implements ComponentSystem {
-    private Block air;
+    private static final Logger logger = LoggerFactory.getLogger(MazeSystem.class);
+
     private Block solid;
 
     @In
@@ -51,7 +55,18 @@ public class MazeSystem implements ComponentSystem {
 
     @ReceiveEvent
     public void onPlayerSpawn(OnPlayerSpawnedEvent event, EntityRef player, InventoryComponent inventory) {
-        inventoryManager.giveItem(player, entityManager.create("Maze:buildMaze"));
+        createAndGiveItemToPlayerIfPossible("Maze:buildMaze", player);
+    }
+
+    private void createAndGiveItemToPlayerIfPossible(String uri, EntityRef player) {
+        EntityRef item = entityManager.create(uri);
+        GiveItemAction action = new GiveItemAction(EntityRef.NULL, item);
+        player.send(action);
+        if (!action.isConsumed()) {
+            logger.warn(uri + " could not be created and given to player.");
+            item.destroy();
+        }
+
     }
 
     @ReceiveEvent
@@ -128,13 +143,8 @@ public class MazeSystem implements ComponentSystem {
         worldProvider.setBlock(new Vector3i(x, y, z), solid);
     }
 
-    private void removeBlock(int x, int y, int z) {
-        worldProvider.setBlock(new Vector3i(x, y, z), air);
-    }
-
     @Override
     public void initialise() {
-        air = BlockManager.getAir();
     }
 
     @Override
