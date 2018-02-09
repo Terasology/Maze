@@ -1,14 +1,11 @@
 {
     "id" : "Maze",
-    "version" : "0.1.1-SNAPSHOT",
+    "version" : "0.1.2-SNAPSHOT",
     "author" : "synopia",
     "displayName" : "Maze",
     "description" : "Helper and tools to generate mazes",
     "dependencies" : [
-         {
-             "id" : "Core",
-             "minVersion" : "1.0.0"
-         }
-     ],
+        {"id" : "Core", "minVersion" : "2.0.0"}
+    ],
     "isServerSideOnly" : true
 }
