@@ -11,7 +11,7 @@
     	sounds = "engine:click"
   	},
   	"BuildMaze" : {
-  	    blockType = "core:dirt"
+  	    blockType = "CoreBlocks:Dirt"
   	},
     "BlockSelection" : {},
     "OnItemActivateSelection" : {}
