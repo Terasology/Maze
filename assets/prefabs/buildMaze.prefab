@@ -5,14 +5,14 @@
     },
     "Item" : {
         "icon" : "engine:items.scissors",
-		"usage" : "ON_BLOCK"
+        "usage" : "ON_BLOCK"
     },
-  	"PlaySoundAction" : {
-    	sounds = "engine:click"
-  	},
-  	"BuildMaze" : {
-  	    blockType = "CoreBlocks:Dirt"
-  	},
+    "PlaySoundAction" : {
+        sounds = "engine:click"
+    },
+    "BuildMaze" : {
+        blockType = "CoreBlocks:Dirt"
+    },
     "BlockSelection" : {},
     "OnItemActivateSelection" : {}
 }
