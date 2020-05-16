@@ -1,12 +1,13 @@
 {
-    "id" : "Maze",
-    "version" : "0.2.0",
-    "author" : "synopia",
-    "displayName" : "Maze",
-    "description" : "Helper and tools to generate mazes",
-    "dependencies" : [
-        {"id" : "Inventory", "minVersion" : "1.1.0"}
+    "id": "Maze",
+    "version": "1.0.0",
+    "author": "synopia",
+    "displayName": "Maze",
+    "description": "Helper and tools to generate mazes",
+    "dependencies": [
+        { "id": "CoreAssets", "minVersion": "2.0.1" },
+        { "id": "Inventory", "minVersion": "1.1.0" }
     ],
-    "isServerSideOnly" : true,
-    "isAugmentation": true
+    "isServerSideOnly": true,
+    "isWorld": true
 }
