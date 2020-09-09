@@ -1,18 +1,5 @@
-/*
- * Copyright 2013 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.maze.model;
 
 import java.util.Arrays;
@@ -26,16 +13,20 @@ import java.util.Random;
  * @author synopia
  */
 public class PerfectMazeGenerator implements MazeGenerator {
-    private int[][] maze;
-    private int width;
-    private int height;
-    private Random random;
+    private final int[][] maze;
+    private final int width;
+    private final int height;
+    private final Random random;
 
     public PerfectMazeGenerator(int width, int height) {
         this.width = width;
         this.height = height;
         maze = new int[width][height];
         random = new Random();
+    }
+
+    private static boolean between(int v, int upper) {
+        return (v >= 0) && (v < upper);
     }
 
     @Override
@@ -56,10 +47,6 @@ public class PerfectMazeGenerator implements MazeGenerator {
                 generateMaze(nx, ny);
             }
         }
-    }
-
-    private static boolean between(int v, int upper) {
-        return (v >= 0) && (v < upper);
     }
 
 }
