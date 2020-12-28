@@ -15,6 +15,7 @@
  */
 package org.terasology.maze;
 
+import org.joml.Vector3i;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.terasology.entitySystem.entity.EntityManager;
@@ -27,8 +28,6 @@ import org.terasology.logic.inventory.InventoryManager;
 import org.terasology.logic.inventory.action.GiveItemAction;
 import org.terasology.logic.players.event.OnPlayerSpawnedEvent;
 import org.terasology.logic.selection.ApplyBlockSelectionEvent;
-import org.terasology.math.Region3i;
-import org.terasology.math.geom.Vector3i;
 import org.terasology.maze.model.MazeGenerator;
 import org.terasology.maze.model.PerfectMazeGenerator;
 import org.terasology.registry.CoreRegistry;
@@ -36,6 +35,7 @@ import org.terasology.registry.In;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
+import org.terasology.world.block.BlockRegionc;
 
 /**
  * @author synopia
@@ -77,9 +77,9 @@ public class MazeSystem extends BaseComponentSystem {
             return;
         }
         solid = CoreRegistry.get(BlockManager.class).getBlock(mazeComponent.blockType);
-        Region3i selection = event.getSelection();
-        Vector3i size = selection.size();
-        Vector3i min = selection.min();
+        BlockRegionc selection = event.getSelection();
+        Vector3i size = selection.getSize(new Vector3i());
+        Vector3i min = selection.getMin(new Vector3i());
         int mazeWidth = size.x / 3;
         int mazeHeight = size.z / 3;
         if (mazeWidth < 2 || mazeHeight < 2 || size.y < 1) {
