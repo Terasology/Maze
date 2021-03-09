@@ -15,7 +15,7 @@
  */
 package org.terasology.maze;
 
-import org.terasology.entitySystem.Component;
+import org.terasology.engine.entitySystem.Component;
 
 /**
  * Attach this component and BlockSelection to entity items, to make them into maze builder items. When a selection
