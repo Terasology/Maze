@@ -12,4 +12,9 @@ import org.terasology.gestalt.entitysystem.component.Component;
  */
 public class BuildMazeComponent implements Component<BuildMazeComponent> {
     public String blockType;
+
+    @Override
+    public void copy(BuildMazeComponent other) {
+        this.blockType = other.blockType;
+    }
 }
