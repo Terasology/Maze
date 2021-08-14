@@ -14,7 +14,7 @@ public class BuildMazeComponent implements Component<BuildMazeComponent> {
     public String blockType;
 
     @Override
-    public void copy(BuildMazeComponent other) {
+    public void copyFrom(BuildMazeComponent other) {
         this.blockType = other.blockType;
     }
 }
